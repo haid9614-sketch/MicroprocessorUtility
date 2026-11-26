@@ -8,7 +8,7 @@
     <BuildDependency Project="AsmCore/AsmCore.vcxproj" />
     <Platform Solution="*|x86" Project="x86" />
   </Project>
-  <Project Path="AsmCore/AsmCore.vcxproj">
+  <Project Path="AsmCore/AsmCore.vcxproj" Id="c300f265-8e25-460d-a494-22d806d66781">
     <Platform Solution="Debug|x64" Project="Win32" />
   </Project>
 </Solution>

@@ -5,11 +5,26 @@ namespace AppUI
         public Form1()
         {
             InitializeComponent();
+            SetupTabs();
+        }
 
-            int[] sample = { 1, 2, 3 };
-            int asmOut = NativeMethods.BinarySearchASM(sample, sample.Length, 5, out double ms);
-            MessageBox.Show($"Kết nối AsmCore.dll thành công!\nKết quả từ thanh ghi EAX (5 + 10) = {asmOut}\nThời gian: {ms:F4} ms");
+        private void SetupTabs()
+        {
+            this.Text = "Microprocessor Utility (C# + x86 Assembly)";
+            this.Size = new Size(1000, 650);
+            this.StartPosition = FormStartPosition.CenterScreen;
 
+            var tabControl = new TabControl { Dock = DockStyle.Fill };
+
+            var tabEncrypt = new TabPage("1. Mã hóa & Giải mã File");
+            tabEncrypt.Controls.Add(new UcEncryption { Dock = DockStyle.Fill });
+
+            var tabSort = new TabPage("2. Sắp xếp & Tìm kiếm Mảng");
+            tabSort.Controls.Add(new UcSorting { Dock = DockStyle.Fill });
+
+            tabControl.TabPages.Add(tabEncrypt);
+            tabControl.TabPages.Add(tabSort);
+            this.Controls.Add(tabControl);
         }
     }
 }
